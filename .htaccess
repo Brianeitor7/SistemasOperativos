@@ -1,0 +1,12 @@
+Options -Indexes
+
+DirectoryIndex front/index.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Si la petición es para un archivo o carpeta real existente (como backend.php), déjala pasar tal cual
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+</IfModule>
